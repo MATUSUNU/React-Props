@@ -9,6 +9,15 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 6px solid white;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
 .contact-card {
   border-radius: $card-radius;
   overflow: hidden;
@@ -48,13 +57,13 @@ body {
     right: 25px;
     top: 50%;
     transform: translateY(-50%);
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    border: 6px solid white;
-    object-fit: cover;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
+}
+
+.profile-avatar {
+  display: block;
+  margin: 0 auto 1rem;
+  position: static;
 }
 
 @media (max-width: 480px) {

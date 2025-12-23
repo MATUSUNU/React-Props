@@ -1,5 +1,6 @@
 import Card from "./Card"
 import contact from "../contacts"
+import Avatar from "./Avatar"
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
             <h1 class="text-center fw-bold display-4 m-0">My Contacts</h1>
           </div>
         </div>
+
+        <Avatar imgURL="https://picsum.photos/id/237/250" />
 
         <div className="row justify-content-center">
           <Card

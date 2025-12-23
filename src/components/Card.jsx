@@ -1,3 +1,5 @@
+import Avatar from "./Avatar"
+import Detail from "./Detail"
 
 function Card(props) {
   return (
@@ -5,11 +7,11 @@ function Card(props) {
       <div class="contact-card shadow">
         <div class="card-top">
           <h2 class="name">{props.name}</h2>
-          <img class="avatar" src={props.srcImg} alt="jack" />
+          <Avatar imgURL={props.srcImg} />
         </div>
         <div class="card-bottom">
-          <p class="info">{props.tel}</p>
-          <p class="info">{props.email}</p>
+          <Detail detailInfo={props.tel} />
+          <Detail detailInfo={props.email} />
         </div>
       </div>
     </div>
