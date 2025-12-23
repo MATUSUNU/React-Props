@@ -2,7 +2,7 @@
 
 function Detail(props) {
   return (
-    <p class="info">{props.detailInfo}</p>
+    <p className="info">{props.detailInfo}</p>
   );
 };
 

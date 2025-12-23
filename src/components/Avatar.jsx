@@ -1,7 +1,7 @@
 
 function Avatar(props) {
   return (
-    <img class="avatar profile-avatar" src={props.imgURL} alt="jack" />
+    <img className="avatar profile-avatar" src={props.imgURL} alt="jack" />
   );
 };
 
