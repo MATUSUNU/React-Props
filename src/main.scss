@@ -1,0 +1,67 @@
+$primary-teal: #08d1c1;
+$secondary-teal: #81ecec;
+$card-radius: 25px;
+
+@import "bootstrap/scss/bootstrap";
+
+body {
+  background-color: #f0f2f5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-card {
+  border-radius: $card-radius;
+  overflow: hidden;
+  position: relative;
+  border: none;
+  max-width: 450px;
+  margin: 0 auto;
+
+  .card-top {
+    background-color: $primary-teal;
+    padding: 30px 25px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+
+    .name {
+      color: #2d3436;
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+
+  .card-bottom {
+    background-color: $secondary-teal;
+    padding: 30px 25px;
+    min-height: 120px;
+
+    .info {
+      color: #636e72;
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+    }
+  }
+
+  .avatar {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 6px solid white;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-card .avatar {
+    width: 100px;
+    height: 100px;
+    right: 15px;
+    border-width: 4px;
+  }
+}
