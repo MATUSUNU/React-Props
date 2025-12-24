@@ -1,36 +1,33 @@
-import Card from "./Card"
-import contacts from "../contacts"
-import Avatar from "./Avatar"
-
-function createContact(contact) {
-  return (
-    <Card
-      id={contact.id}
-      key={contact.id}
-      name={contact.name}
-      srcImg={contact.imgURL}
-      tel={contact.phone}
-      email={contact.email}
-    />
-  );
-};
+import {Link} from "react-router-dom"
 
 function App() {
   return (
     <div className="bg-light">
       <div className="container">
 
-        <div className="row align-items-center my-5">
+        <div className="row align-items-center py-3">
           <div className="col-12">
-            <h1 className="text-center fw-bold display-4 m-0">My Contacts</h1>
+            <h1 className="text-center fw-bold display-4 m-0">
+              My Custom React Components
+            </h1>
           </div>
         </div>
 
-        <Avatar imgURL="https://picsum.photos/id/237/250" />
+        <div className="row align-items-center my-5">
 
-        <div className="row justify-content-center">
-          {contacts.map(createContact)}
+          <div className="col-12 text-center fw-bold display-4 my-2">
+            <Link to="/my-contact" className="btn btn-primary mb-3" >
+              My Contact
+            </Link>
+          </div>
+
+          <div className="col-12 text-center fw-bold display-4 my-2">
+            <Link to="/map-filter-reduce" className="btn btn-primary mb-3" >
+              My Map-Reduce-Filter
+            </Link>
+          </div>
         </div>
+
       </div>
     </div>
   )
