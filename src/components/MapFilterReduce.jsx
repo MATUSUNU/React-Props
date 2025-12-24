@@ -77,7 +77,7 @@ function MapFilterReduce() {
         )}
 
         {/* Reduce Feature: accumulate a value by doing something to each item in an array. */}
-        <div className="text-center mt-5 mb-3">
+        <div className="text-center">
           <p>
             Total description Length: {" "}
             {emojis.reduce((acc, emoji) => acc + emoji.description.length,0)}
