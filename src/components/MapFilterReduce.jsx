@@ -52,7 +52,11 @@ function MapFilterReduce() {
             key={emoji.id}
             name={emoji.name}
             emoji={emoji.emoji}
-            description={emoji.description}
+            description={
+              emoji.description.length > 100?
+              emoji.description.substring(0,100)+"...":
+              emoji.description
+              }
           />
         ))}
 
@@ -64,35 +68,42 @@ function MapFilterReduce() {
               key={emoji.id}
               name={emoji.name}
               emoji={emoji.emoji}
-              description={emoji.description}
+              description={
+                emoji.description.length > 100?
+                emoji.description.substring(0,100)+"...":
+                emoji.description
+              }
             />
         )}
 
         {/* Reduce Feature: accumulate a value by doing something to each item in an array. */}
-        <p>
-          Total description Length: {" "}
-          {emojis.reduce((acc, emoji) => acc + emoji.description.length,0)}
-        </p>
-        <p>
-          Racing Car description Length: {" "}
-          {emojis.filter(emoji =>
-            emoji.name.toLowerCase().includes("racing car")
-          ).reduce((acc,emoji) =>
-            acc + emoji.description.length,0
-          )
-          }
-        </p>
+        <div className="text-center mt-5 mb-3">
+          <p>
+            Total description Length: {" "}
+            {emojis.reduce((acc, emoji) => acc + emoji.description.length,0)}
+          </p>
+
+          <p>
+            Racing Car description Length: {" "}
+            {emojis.filter(emoji =>
+              emoji.name.toLowerCase().includes("racing car")
+            ).reduce((acc,emoji) =>
+              acc + emoji.description.length,0
+            )
+            }
+          </p>
+        </div>
 
         <h2 className="d-flex justify-content-center mt-5 mb-3">Find</h2>
         {/* Find Feature: find the first item that matches from an array. */}
-        <p>
+        <p className="text-center">
           Santa Claus description Length: {" "}
           {emojis.find(emoji => emoji.name.toLowerCase().includes("santa claus"))?.description.length}
         </p>
 
         <h2 className="d-flex justify-content-center mt-5 mb-3">FindIndex</h2>
         {/* FindIndex Feature: find the index of the first item that matches. */}
-        <p>
+        <p className="text-center">
           Man Elf located at index: {" "}
           {emojis.findIndex(emoji =>
             emoji.name.toLowerCase().includes("man elf"))
