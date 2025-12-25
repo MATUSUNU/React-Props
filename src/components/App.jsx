@@ -29,7 +29,7 @@ function App() {
 
           <div className="col-12 text-center fw-bold display-4 my-2">
             <Link to="/react-hooks" className="btn btn-primary mb-3" >
-              My React-Hooks useState
+              My React-Hooks
             </Link>
           </div>
         </div>
