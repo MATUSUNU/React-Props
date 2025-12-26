@@ -2,18 +2,23 @@ import { useState } from "react";
 
 
 function ReactForms() {
-  const [name, setName] = useState("");
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
   const [heading, setHeading] = useState("");
 
-  function handleChange(event) {
+  function handleFirstChange(event) {
     // console.log(event.target.value);
     // console.log(event.target.placeholder);
     // console.log(event.target.type);
-    setName(event.target.value);
+    setFname(event.target.value);
+  }
+
+  function handleSecondChange(event) {
+    setLname(event.target.value)
   }
 
   function handleClick(event) {
-    setHeading(name);
+    setHeading(fname+" "+lname);
 
     event.preventDefault();
   }
@@ -21,13 +26,20 @@ function ReactForms() {
   return (
     <div className="container d-flex justify-content-center align-items-center mt-3">
       <div className="form-card p-4 text-center">
-        <h1 className="mb-4">Hello {heading}</h1>
+        <h1 className="mb-4">Hello {fname} {lname}</h1>
         <input
-          onChange={handleChange}
+          onChange={handleFirstChange}
           type="text"
           className="form-control mb-3"
-          placeholder="What's your name?"
-          value={name}
+          placeholder="What's your first name?"
+          value={fname}
+        />
+        <input
+          onChange={handleSecondChange}
+          type="text"
+          className="form-control mb-3"
+          placeholder="What's your last name?"
+          value={lname}
         />
         <button onClick={handleClick} className="btn btn-primary w-100">Submit</button>
       </div>
