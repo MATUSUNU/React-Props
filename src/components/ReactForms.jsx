@@ -25,26 +25,59 @@ function ReactForms() {
   // }
 
   // -------------------------------------- Part 2 --------------------------------------
+  // const [fullName, setFullName] = useState({
+  //   fName: "",
+  //   lName: ""
+  // })
+
+  // function handleChange(event) {
+  //   const newValue = event.target.value;
+  //   const name = event.target.name;
+
+  //   if (name === "fname") {
+  //     setFullName({fName: newValue});
+  //   } else if (name === "lname") {
+  //     setFullName({lName: newValue});
+  //   }
+  // }
+
+  // -------------------------------------- Part 3 --------------------------------------
   const [fullName, setFullName] = useState({
     fName: "",
-    lName: ""
+    lName: "",
+    sName: ""
   })
 
   function handleChange(event) {
-    const newValue = event.target.value;
-    const name = event.target.name;
+    const {name, value} = event.target;
 
-    if (name === "fname") {
-      setFullName({fName: newValue});
-    } else if (name === "lname") {
-      setFullName({lName: newValue});
-    }
+    setFullName((prev) => {
+      if (name === "fname") {
+        return {
+          fName: value,
+          lName: prev.lName,
+          sName: prev.sName
+        }
+      } else if (name === "lname") {
+        return {
+          fName: prev.fName,
+          lName: value,
+          sName: prev.sName,
+        }
+      } else if (name === "sname") {
+        return {
+          fName: prev.fName,
+          lName: prev.lName,
+          sName: value
+        }
+      }
+    })
   }
 
   return (
     <div className="container d-flex justify-content-center align-items-center mt-3">
       <div className="form-card p-4 text-center">
-        <h1 className="mb-4">Hello {fullName.fName} {fullName.lName}</h1>
+        <h1 className="mb-4">Hello {fullName.fName} {fullName.lName} {fullName.sName}</h1>
         <input
           onChange={handleChange}
           type="text"
@@ -60,6 +93,14 @@ function ReactForms() {
           className="form-control mb-3"
           placeholder="What's your last name?"
           value={fullName.lName}
+        />
+        <input
+          onChange={handleChange}
+          type="text"
+          name="sname"
+          className="form-control mb-3"
+          placeholder="What's your sur name?"
+          value={fullName.sName}
         />
         <button className="btn btn-primary w-100">Submit</button>
       </div>
