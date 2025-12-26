@@ -2,7 +2,7 @@ import { useState } from "react";
 
 
 function ReactForms() {
-  // -------------------------------------- Part 1 --------------------------------------
+  // -------------------------------------- Part 1 [Brofessional/Beginner] --------------------------------------
   // const [fname, setFname] = useState("");
   // const [lname, setLname] = useState("");
   // const [heading, setHeading] = useState("");
@@ -41,7 +41,40 @@ function ReactForms() {
   //   }
   // }
 
-  // -------------------------------------- Part 3 --------------------------------------
+  // -------------------------------------- Part 3 [Prafessional/Intermediate] --------------------------------------
+  // const [fullName, setFullName] = useState({
+  //   fName: "",
+  //   lName: "",
+  //   sName: ""
+  // })
+
+  // function handleChange(event) {
+  //   const {name, value} = event.target;
+
+  //   setFullName((prev) => {
+  //     if (name === "fname") {
+  //       return {
+  //         fName: value,
+  //         lName: prev.lName,
+  //         sName: prev.sName
+  //       }
+  //     } else if (name === "lname") {
+  //       return {
+  //         fName: prev.fName,
+  //         lName: value,
+  //         sName: prev.sName,
+  //       }
+  //     } else if (name === "sname") {
+  //       return {
+  //         fName: prev.fName,
+  //         lName: prev.lName,
+  //         sName: value
+  //       }
+  //     }
+  //   })
+  // }
+
+  // -------------------------------------- Use `Spread Syntax` to make it short [Professional] --------------------------------------
   const [fullName, setFullName] = useState({
     fName: "",
     lName: "",
@@ -49,27 +82,15 @@ function ReactForms() {
   })
 
   function handleChange(event) {
+    // Destructuring
     const {name, value} = event.target;
 
+    // Spread Operator
     setFullName((prev) => {
-      if (name === "fname") {
-        return {
-          fName: value,
-          lName: prev.lName,
-          sName: prev.sName
-        }
-      } else if (name === "lname") {
-        return {
-          fName: prev.fName,
-          lName: value,
-          sName: prev.sName,
-        }
-      } else if (name === "sname") {
-        return {
-          fName: prev.fName,
-          lName: prev.lName,
-          sName: value
-        }
+      console.log(prev)
+      return {
+        ...prev,
+        [name]: value
       }
     })
   }
@@ -81,7 +102,7 @@ function ReactForms() {
         <input
           onChange={handleChange}
           type="text"
-          name="fname"
+          name="fName"
           className="form-control mb-3"
           placeholder="What's your first name?"
           value={fullName.fName}
@@ -89,7 +110,7 @@ function ReactForms() {
         <input
           onChange={handleChange}
           type="text"
-          name="lname"
+          name="lName"
           className="form-control mb-3"
           placeholder="What's your last name?"
           value={fullName.lName}
@@ -97,7 +118,7 @@ function ReactForms() {
         <input
           onChange={handleChange}
           type="text"
-          name="sname"
+          name="sName"
           className="form-control mb-3"
           placeholder="What's your sur name?"
           value={fullName.sName}
