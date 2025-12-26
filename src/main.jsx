@@ -6,6 +6,7 @@ import Avatar from './components/Avatar'
 import Contacts from './components/Contacts'
 import MapFilterReduce from './components/MapFilterReduce'
 import ReactHooks from './components/ReactHooks'
+import ReactForms from './components/ReactForms'
 
 
 createRoot(document.getElementById('root')).render(
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')).render(
       <Route path="/my-contact" element={<Contacts />} />
       <Route path="/map-filter-reduce" element={<MapFilterReduce />} />
       <Route path="/react-hooks" element={<ReactHooks />} />
+      <Route path="/react-forms" element={<ReactForms />} />
     </Routes>
   </HashRouter>,
 )

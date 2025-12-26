@@ -32,6 +32,12 @@ function App() {
               My React-Hooks
             </Link>
           </div>
+
+          <div className="col-12 text-center fw-bold display-4 my-2">
+            <Link to="/react-forms" className="btn btn-primary mb-3" >
+              My React-Forms
+            </Link>
+          </div>
         </div>
 
       </div>
